@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Rental Services in Kutch</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background: #333;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+    }
+    .container {
+      width: 80%;
+      margin: auto;
+      overflow: hidden;
+    }
+    .service {
+      background: #fff;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .service img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    .service h3 {
+      margin-top: 0;
+    }
+    .service p {
+      margin: 10px 0;
+    }
+    .types-of-vehicles {
+      margin-top: 20px;
+    }
+    .types-of-vehicles ul {
+      list-style-type: disc;
+      margin: 10px 0;
+      padding-left: 20px;
+    }
+    a {
+      color: #333;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Local Travel Services</h1>
+  </header>
+  <div class="container" id="car-rentals">
+    <!-- Car Rental Services will be dynamically inserted here -->
+  </div>
+
+  <script>
+    const services = [
+      {
+        name: 'Kutch Car Rentals',
+        contact: '+91-97277-88889',
+        address: 'Shop No. 3, Near State Bank of India, Bhuj, Kutch, Gujarat 370001',
+        rates: 'Starting at ₹1200/day',
+        email: 'info@kutchcarrentals.com',
+        website: 'http://kutchcarrentals.com',
+        image: 'image.jpeg',
+        vehicleTypes: [
+          'Sedan',
+          'SUV',
+          'Luxury Car',
+          'Van'
+        ]
+      }
+      // Add more services as needed
+    ];
+
+    const container = document.getElementById('car-rentals');
+
+    services.forEach(service => {
+      const div = document.createElement('div');
+      div.className = 'service';
+      div.innerHTML = `
+        <img src="${service.image}" alt="${service.name}">
+        <h3>${service.name}</h3>
+        <p><strong>Contact:</strong> ${service.contact}</p>
+        <p><strong>Address:</strong> ${service.address}</p>
+        <p><strong>Rates:</strong> ${service.rates}</p>
+        <p><strong>Booking:</strong> <a href="mailto:${service.email}">Email</a> | <a href="${service.website}" target="_blank">Website</a></p>
+        <div class="types-of-vehicles">
+          <h4>Types of Vehicles Provided:</h4>
+          <ul>
+            ${service.vehicleTypes.map(type => `<li>${type}</li>`).join('')}
+          </ul>
+        </div>
+      `;
+      container.appendChild(div);
+    });
+  </script>
+</body>
+</html>
